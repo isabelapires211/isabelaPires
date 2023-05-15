@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const { usuario, pessoa } = require('./models');
+const { usuario, pessoa,Pessoa } = require('./models');
 
 const app = express();
 
@@ -20,6 +20,15 @@ app.get('/', async function(req, res){
 app.get('/pessoas/criar', async function(req, res){
   var pessoas = await pessoa.findAll();
   res.render('pessoas/criar', { pessoas});
+})
+app.post('/pessoas/delete', async function(req, res){
+  try {
+      await Pessoa.destroy({ where: { id: req.body.id } });
+      res.redirect('/pessoas')
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Ocorreu um erro ao criar o usuário.' });
+  }
 })
 
 app.listen(3000, function() {
