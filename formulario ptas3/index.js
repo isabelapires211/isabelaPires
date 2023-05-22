@@ -21,6 +21,17 @@ app.get('/pessoas/criar', async function(req, res){
   var pessoas = await pessoa.findAll();
   res.render('pessoas/criar', { pessoas});
 })
+
+app.post('/pessoas/criar', async function (req, res) {
+  try {
+    await Usuario.create(req.body);
+    res.redirect('/pessoas');
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Ocorreu um erro ao criar o usuário.' });
+  }
+});
+
 app.post('/pessoas/delete', async function(req, res){
   try {
       await Pessoa.destroy({ where: { id: req.body.id } });

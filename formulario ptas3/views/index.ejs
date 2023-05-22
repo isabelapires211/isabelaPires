@@ -7,8 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    <% usuarios.forEach((usuario) => { %>
-        <%= usuario.nome %>
+    <h2>Listar pessoas cadastradas</h2>
+
+    <% pessoas.forEach((pessoa) => { %>
+        <h2><%= pessoa.nome %>
+            <%= pessoa.Sobrenome %></h2>
+        <h3>Altura<%= pessoa.altura %></h3>
+        <h3>Idade<%= pessoa.idade %></h3>
+
+
+    <a href="/pessoas/delete?id=pessoas.id%>" id="demo" onclick=(deletar())> deletar</a>
     <% }) %>
+    <script>
+        function deletar(){
+            var x;
+            var r=confirm("")
+        }
 </body>
 </html>
