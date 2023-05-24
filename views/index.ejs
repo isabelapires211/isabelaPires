@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Pessoas Cadastradas</h2>
+    <a href="/pessoas/criar">Cadastro</a>
+    <div class="tudo">
+     <% pessoas.forEach((pessoa) => { %>
+     
+    <div class="pessoa">
+        <h4><%= pessoa.nome %> <%= pessoa.sobrenome%></h4>
+        <p>Altura<%= pessoa.altura%></p>
+        <p>Idade:<%= pessoa.idade%></p>
+       <a href="/pessoas/delete?id=<%= pessoa.id %>" id="demo" onclick=(deletar())>Deletar</a>
+    </div>  
+        <% }) %>
+    </div>
+   
+    
+</body>
+</html>
