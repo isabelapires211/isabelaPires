@@ -8,20 +8,21 @@
     <title>Document</title>
 </head>
 <body>
+    
     <h2>Pessoas Cadastradas</h2>
     <a href="/pessoas/criar">Cadastro</a>
-    <div class="tudo">
+
+    <div class="grid">
      <% pessoas.forEach((pessoa) => { %>
-     
-    <div class="pessoa">
+
+    <div class="Listagem">
         <h4><%= pessoa.nome %> <%= pessoa.sobrenome%></h4>
         <p>Altura<%= pessoa.altura%></p>
         <p>Idade:<%= pessoa.idade%></p>
-       <a href="/pessoas/delete?id=<%= pessoa.id %>" id="demo" onclick=(deletar())>Deletar</a>
+        <a class="deletar" href="/pessoas/delete?id=<%= pessoa.id %>" >Deletar</a>
     </div>  
+
         <% }) %>
     </div>
-   
-    
 </body>
 </html>
